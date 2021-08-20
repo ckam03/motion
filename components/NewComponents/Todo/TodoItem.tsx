@@ -1,6 +1,6 @@
 const TodoItem = () => {
     return (
-      <div className="w-full p-2 border shadow-md rounded-lg flex items-center justify-between bg-gray-200 bg-opacity-40">
+      <div className="w-full p-2 border shadow-md rounded-lg flex items-center justify-between bg-gray-200 bg-opacity-40 font-Inter">
         <div className="space-x-4 flex items-center">
         <input type="checkbox" className="rounded"/>
         <span>Workout</span>

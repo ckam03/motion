@@ -13,7 +13,7 @@ const Board = () => {
     });
   
     return (
-      <div className="flex space-x-10">
+      <div className="flex space-x-10 mt-8">
         <NewComponentMenu />
         <div className="grid grid-cols-6 gap-8">{renderedArray}</div>
       </div>

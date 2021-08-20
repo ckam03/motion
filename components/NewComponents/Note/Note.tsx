@@ -1,15 +1,12 @@
 import { Menu,Transition } from "@headlessui/react";
 import React, { useState, Fragment } from "react";
 import NoteColorChanger from "./NoteColor";
-import NoteColor from "./NoteColor";
-
+import Draggable from 'react-draggable';
 const Note = () => {
   const [content, setContent] = useState<string>()
   const [title, setTitle] = useState<string>()
   const [color, setColor] = useState<any>()
 
-  let defaultColor: any
-  
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setContent(event.target.value)
   };
@@ -19,9 +16,10 @@ const Note = () => {
   }
 
   return (
+    <Draggable>
     <div className={`${color} h-64 w-64 bg-yellow-200 text-black rounded-lg p-2 shadow-lg`}>
       <div className="flex justify-between items-center pb-6">
-        <h1 className="font-bold">Note</h1>
+        <h1 className="font-bold font-Inter">Note</h1>
         <Menu>
           <Menu.Button>
             <div className={`hover:${color} p-1 rounded-lg ease-in-out duration-100`}>
@@ -52,7 +50,7 @@ const Note = () => {
           >
             <Menu.Items
               as="div"
-              className={`bg-gray-100 w-64 shadow-lg rounded-lg absolute translate-y-24 -translate-x-2 z-50`}
+              className={`bg-gray-100 font-Inter w-64 shadow-lg rounded-lg absolute translate-y-24 -translate-x-2 z-50`}
             >
               <Menu.Item>
                 {({ active }) => (
@@ -124,10 +122,11 @@ const Note = () => {
       </div>
 
       <textarea
-        className={`${color} bg-yellow-200 w-full h-48 border-none focus:border-none focus:ring-0 resize-none`}
+        className={`${color} bg-yellow-200 font-Inter w-full h-48 border-none focus:border-none focus:ring-0 resize-none`}
         onChange={() => {handleChange}}
       />
     </div>
+    </Draggable>
   );
 };
 export default Note;

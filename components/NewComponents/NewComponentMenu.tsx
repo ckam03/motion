@@ -3,6 +3,7 @@ import { NewComponentContext } from "../../Context/NewComponentContext"
 import { Menu, Transition } from '@headlessui/react'
 import Note from "./Note/Note";
 import TodoList from "./Todo/TodoList";
+import Photo from "./Photo/Photo";
 
 const NewComponentMenu = () => {
     const { setComponent } = useContext(NewComponentContext)
@@ -93,7 +94,7 @@ const NewComponentMenu = () => {
               <Menu.Item>
                 {({ active }) => (
                   <li
-                    //onClick={() => setComponent(<Photo />) }
+                    onClick={() => setComponent(<Photo />) }
                     className={`${
                       active ? "bg-blue-500 text-white" : " text-black"
                     } flex items-center py-2 px-3 cursor-pointer rounded-lg`}

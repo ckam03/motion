@@ -26,7 +26,7 @@ const TodoForm = () => {
           type="text"
           value={todo}
           onChange={(event) => setTodo(event.target.value)}
-          className="font-Inter p-2 rounded-lg w-full h-9 flex justify-center items-center border-none bg-gray-200 bg-opacity-40 focus:ring-2 focus:border-blue-500 ease-in-out duration-100 shadow-lg"
+          className="font-Inter p-2 rounded-lg w-full h-9 flex justify-center items-center border-none bg-gray-200 bg-opacity-50 focus:ring-2 focus:border-blue-500 ease-in-out duration-100 shadow-lg"
           placeholder="Add New Todo"
         />
         <button

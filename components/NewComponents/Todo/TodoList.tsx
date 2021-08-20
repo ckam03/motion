@@ -2,12 +2,15 @@ import { MouseEvent, useEffect, useState, Fragment } from "react";
 import TodoForm from "./TodoForm";
 import TodoItem from "./TodoItem";
 import { Menu, Transition } from "@headlessui/react";
+import Draggable from 'react-draggable';
 
 const TodoList = () => {
   const [todos, setTodos] = useState<any>();
   const [title, setTitle] = useState<string>();
 
   return (
+    <Draggable>
+
     <div className="w-64 bg-gray-50 rounded-lg shadow-lg p-2 relative space-y-2">
       <div className="flex justify-between items-center p-1">
         <span contentEditable="true" className="font-bold">
@@ -107,6 +110,7 @@ const TodoList = () => {
       </ul>
       <TodoForm />
     </div>
+    </Draggable>
   );
 };
 
