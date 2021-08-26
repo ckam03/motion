@@ -1,15 +1,17 @@
-import { MouseEvent, useEffect, useState, Fragment } from "react";
+import { MouseEvent, useEffect, useState, Fragment, useContext } from "react";
 import TodoForm from "./TodoForm";
 import TodoItem from "./TodoItem";
 import { Menu, Transition } from "@headlessui/react";
-import Draggable from 'react-draggable';
+import { NewComponentContext } from "../../../Context/NewComponentContext";
 
-const TodoList = () => {
+interface ITodoList {
+  id: any;
+}
+const TodoList: React.FC <ITodoList> = ({ id }) => {
   const [todos, setTodos] = useState<any>();
   const [title, setTitle] = useState<string>();
-
+  const {deleteComponent} = useContext(NewComponentContext)
   return (
-    <Draggable>
 
     <div className="w-64 bg-gray-50 rounded-lg shadow-lg p-2 relative space-y-2">
       <div className="flex justify-between items-center p-1">
@@ -78,6 +80,7 @@ const TodoList = () => {
               <Menu.Item>
                 {({ active }) => (
                   <li
+                    onClick={() => deleteComponent}
                     className={`${
                       active ? "bg-blue-500 text-white" : " text-black"
                     } flex items-center py-2 px-3 cursor-pointer rounded-lg`}
@@ -110,7 +113,7 @@ const TodoList = () => {
       </ul>
       <TodoForm />
     </div>
-    </Draggable>
+
   );
 };
 

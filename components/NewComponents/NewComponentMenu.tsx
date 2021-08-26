@@ -1,13 +1,19 @@
-import React, { useContext, Fragment } from "react"
+import React, { useContext, Fragment, useState } from "react"
 import { NewComponentContext } from "../../Context/NewComponentContext"
 import { Menu, Transition } from '@headlessui/react'
 import Note from "./Note/Note";
 import TodoList from "./Todo/TodoList";
 import Photo from "./Photo/Photo";
 
+
 const NewComponentMenu = () => {
-    const { setComponent } = useContext(NewComponentContext)
-  
+    const { addComponent } = useContext(NewComponentContext)
+    //const [id, setId] = useState<number>(0)
+
+    const newComponent = (componentType: number) => {
+        //setId(Math.floor(Math.random() * 100000000))
+        addComponent({id: Math.floor(Math.random() * 100000000), componentType: componentType})
+    }
     return (
       <div className="w-6 h-6 mt-4 ml-4 shadow-md text-gray-800 font-Inter z-50">
         <Menu>
@@ -42,7 +48,7 @@ const NewComponentMenu = () => {
                 {({ active }) => (
                   <button
                     id="Todo"
-                    onClick={() => setComponent(<TodoList />) }
+                    onClick={() => newComponent(1)}
                     className={`${
                       active ? "bg-blue-500 text-white" : "text-black"
                     } flex items-center py-2 px-3 rounded-lg w-full`}
@@ -94,7 +100,7 @@ const NewComponentMenu = () => {
               <Menu.Item>
                 {({ active }) => (
                   <li
-                    onClick={() => setComponent(<Photo />) }
+                    onClick={() => newComponent(2) }
                     className={`${
                       active ? "bg-blue-500 text-white" : " text-black"
                     } flex items-center py-2 px-3 cursor-pointer rounded-lg`}
@@ -120,7 +126,7 @@ const NewComponentMenu = () => {
               <Menu.Item>
                 {({ active }) => (
                   <li
-                    onClick={() => setComponent(<Note />) }
+                    onClick={() => newComponent(3)}
                     className={`${
                       active ? "bg-blue-500 text-white" : " text-black"
                     } flex items-center py-2 px-3 cursor-pointer rounded-lg`}

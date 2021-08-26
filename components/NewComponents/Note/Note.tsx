@@ -1,11 +1,19 @@
 import { Menu,Transition } from "@headlessui/react";
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useContext } from "react";
 import NoteColorChanger from "./NoteColor";
 import Draggable from 'react-draggable';
-const Note = () => {
+import { NewComponentContext } from "../../../Context/NewComponentContext";
+
+interface INote {
+  id: any
+}
+const Note: React.FC <INote> = ({ id }) => {
   const [content, setContent] = useState<string>()
   const [title, setTitle] = useState<string>()
   const [color, setColor] = useState<any>()
+  const [position, setPosition] = useState<any>({x: 0, y: 0})
+
+  const {deleteComponent} = useContext(NewComponentContext)
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setContent(event.target.value)
@@ -15,8 +23,11 @@ const Note = () => {
     setColor(notecolor)
   }
 
-  return (
-    <Draggable>
+  const trackPosition = (pos:any) => {
+    setPosition({x: pos.x, y: pos.y})
+  }
+
+  return ( 
     <div className={`${color} h-64 w-64 bg-yellow-200 text-black rounded-lg p-2 shadow-lg`}>
       <div className="flex justify-between items-center pb-6">
         <h1 className="font-bold font-Inter">Note</h1>
@@ -93,6 +104,7 @@ const Note = () => {
               <Menu.Item>
                 {({ active }) => (
                   <li
+                    onClick={() => deleteComponent(id)}
                     className={`${
                       active ? "bg-blue-500 text-white" : " text-black"
                     } flex items-center py-2 px-3 cursor-pointer rounded-lg`}
@@ -111,7 +123,7 @@ const Note = () => {
                         d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
                       />
                     </svg>
-                    Delete List
+                    Delete Note
                   </li>
                 )}
               </Menu.Item>
@@ -126,7 +138,7 @@ const Note = () => {
         onChange={() => {handleChange}}
       />
     </div>
-    </Draggable>
+   
   );
 };
 export default Note;

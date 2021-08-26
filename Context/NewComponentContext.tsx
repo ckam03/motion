@@ -1,19 +1,38 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useReducer, useState } from "react";
+import ComponentReducer from "./ComponentReducer";
 
 const NewComponentState: NewComponentsState = {
-    components: [],   
-    setComponent: () => {}
-}
+  components: [],
+  addComponent: () => {},
+  deleteComponent: () => {},
+};
 
-export const NewComponentContext = React.createContext<NewComponentsState>(NewComponentState);
+export const NewComponentContext =
+  React.createContext<NewComponentsState>(NewComponentState);
 
 export const NewComponentProvider: React.FC = ({ children }) => {
-    const [components, setComponents] = useState(NewComponentState.components)
+  const [components, setComponents] = useState(NewComponentState.components);
+  const [state, dispatch] = useReducer(ComponentReducer, NewComponentState);
 
-    const setComponent = (newComponent: any) => setComponents((components) => [...components, newComponent])
-    return (
-        <NewComponentContext.Provider value={{components, setComponent}}>
-            {children}
-        </NewComponentContext.Provider>
-    );
-}
+  const addComponent = (component: any) => {
+    dispatch({
+      type: "ADD_COMPONENT",
+      payload: component
+    });
+  };
+  const deleteComponent = (id: any) => {
+    dispatch({
+      type: "DELETE_COMPONENT",
+      payload: id,
+    });
+  };
+
+  //const addComponent = (newComponent: any) => setComponents((components) => [...components, newComponent])
+  return (
+    <NewComponentContext.Provider
+      value={{ components: state.components, deleteComponent, addComponent }}
+    >
+      {children}
+    </NewComponentContext.Provider>
+  );
+};

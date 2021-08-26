@@ -3,7 +3,10 @@ import Image from "next/image";
 import PhotoMenu from "./PhotoMenu";
 import Draggable from 'react-draggable';
 
-const Photo = () => {
+interface IPhoto {
+  id: any;
+}
+const Photo: React.FC <IPhoto> = ({ id }) => {
   const [image, setImage] = useState<any>();
 
   const updatePhoto = (photo: any) => {

@@ -1,5 +1,6 @@
 type NewComponentsState = {
     components: any[];
     
-    setComponent: (component: any) => void;
+    addComponent: ({id: any, componentType: number}) => void;
+    deleteComponent: (id: any) => void;
 }
