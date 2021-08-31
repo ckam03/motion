@@ -1,3 +1,4 @@
+
 export default function reducer(state: any, action: any) {
   switch (action.type) {
     case "ADD_COMPONENT":
@@ -9,8 +10,7 @@ export default function reducer(state: any, action: any) {
       return {
         ...state,
         components: state.components.filter(
-          (component: any) => component.id !== action.payload
-        ),
+          (component: any) =>  component.id !== action.payload)
       };
     default:
       return state;

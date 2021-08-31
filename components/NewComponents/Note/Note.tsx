@@ -1,39 +1,56 @@
-import { Menu,Transition } from "@headlessui/react";
+import { Menu, Transition } from "@headlessui/react";
 import React, { useState, Fragment, useContext } from "react";
 import NoteColorChanger from "./NoteColor";
-import Draggable from 'react-draggable';
+import Draggable from "react-draggable";
 import { NewComponentContext } from "../../../Context/NewComponentContext";
 
 interface INote {
-  id: any
+  id: any;
 }
-const Note: React.FC <INote> = ({ id }) => {
-  const [content, setContent] = useState<string>()
-  const [title, setTitle] = useState<string>()
-  const [color, setColor] = useState<any>()
-  const [position, setPosition] = useState<any>({x: 0, y: 0})
+const Note: React.FC<INote> = ({ id }) => {
+  const [content, setContent] = useState<string>();
+  const [title, setTitle] = useState<string>();
+  const [color, setColor] = useState<any>();
+  const [position, setPosition] = useState<any>({ x: 0, y: 0 });
 
-  const {deleteComponent} = useContext(NewComponentContext)
+  const { deleteComponent } = useContext(NewComponentContext);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setContent(event.target.value)
+    setContent(event.target.value);
   };
 
   const handleColor = (notecolor: any) => {
-    setColor(notecolor)
-  }
+    setColor(notecolor);
+  };
 
-  const trackPosition = (pos:any) => {
-    setPosition({x: pos.x, y: pos.y})
-  }
+  const handleTitle = () => {
+    setTitle()
+  };
 
-  return ( 
-    <div className={`${color} h-64 w-64 bg-yellow-200 text-black rounded-lg p-2 shadow-lg`}>
+  const trackPosition = (pos: any) => {
+    setPosition({ x: pos.x, y: pos.y });
+  };
+
+  const deleteNote = () => {
+    deleteComponent(id);
+  };
+
+  return (
+    <div
+      className={`${color} h-64 w-64 bg-yellow-200 text-black rounded-lg p-2 shadow-lg`}
+    >
       <div className="flex justify-between items-center pb-6">
-        <h1 className="font-bold font-Inter">Note</h1>
+        <input
+          className={`${color} border-none bg-yellow-200 rounded-lg h-8 w-40 font-bold font-Inter`}
+          type="text"
+          name="Note"
+          value={title}
+        />
         <Menu>
           <Menu.Button>
-            <div className={`hover:${color} p-1 rounded-lg ease-in-out duration-100`}>
+            <div
+              className={`hover:${color} p-1 rounded-lg ease-in-out duration-100`}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -69,9 +86,7 @@ const Note: React.FC <INote> = ({ id }) => {
                     id="color"
                     className={` flex items-center py-2 px-3 rounded-lg w-full`}
                   >
-                    {<NoteColorChanger handleColor={handleColor}/>}
-                    
-                    
+                    {<NoteColorChanger handleColor={handleColor} />}
                   </div>
                 )}
               </Menu.Item>
@@ -79,6 +94,7 @@ const Note: React.FC <INote> = ({ id }) => {
                 {({ active }) => (
                   <button
                     id="Todo"
+                    onClick={handleTitle}
                     className={`${
                       active ? "bg-blue-500 text-white" : "text-black"
                     } flex items-center py-2 px-3 rounded-lg w-full`}
@@ -104,7 +120,7 @@ const Note: React.FC <INote> = ({ id }) => {
               <Menu.Item>
                 {({ active }) => (
                   <li
-                    onClick={() => deleteComponent(id)}
+                    onClick={deleteNote}
                     className={`${
                       active ? "bg-blue-500 text-white" : " text-black"
                     } flex items-center py-2 px-3 cursor-pointer rounded-lg`}
@@ -127,7 +143,6 @@ const Note: React.FC <INote> = ({ id }) => {
                   </li>
                 )}
               </Menu.Item>
-              
             </Menu.Items>
           </Transition>
         </Menu>
@@ -135,10 +150,11 @@ const Note: React.FC <INote> = ({ id }) => {
 
       <textarea
         className={`${color} bg-yellow-200 font-Inter w-full h-48 border-none focus:border-none focus:ring-0 resize-none`}
-        onChange={() => {handleChange}}
+        onChange={() => {
+          handleChange;
+        }}
       />
     </div>
-   
   );
 };
 export default Note;

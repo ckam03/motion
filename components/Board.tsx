@@ -5,31 +5,27 @@ import Note from "./NewComponents/Note/Note";
 import Photo from "./NewComponents/Photo/Photo";
 import TodoList from "./NewComponents/Todo/TodoList";
 
+const newComponents: any = {
+  1: TodoList,
+  2: Photo,
+  3: Note
+}
 const Board = () => {
     const { components } = useContext(NewComponentContext);
 
     const componentList  = components.map((component, i) => {
-      if (component.componentType == 1) {
-        return (
-          <div key={i}>
-            <TodoList id={component.id} />
-          </div>
-        );
-      }
-      else if (component.componentType == 2) {
-        return (
-          <div key={i}>
-            <Photo id={component.id} />
-          </div>
-        ) 
-      }
-      else {
-        return (
-          <div key={i}>
-            <Note id={component.id} />
-          </div>
-        )
-        
+      const id: number = component.componentType
+      const NewComponent = newComponents[id]
+      
+      for (const property in newComponents) {
+          const value = parseInt(property)
+          if (value == id) {
+            return (
+              <div key={component.id}>
+                <NewComponent id={component.id}/>
+              </div>
+            )
+          }
       }
     });
   

@@ -13,6 +13,9 @@ module.exports = {
         teal: colors.teal,
         lime: colors.lime,
         orange: colors.orange,
+      },
+      spacing: {
+        100: '30rem'
       }
     },
   },

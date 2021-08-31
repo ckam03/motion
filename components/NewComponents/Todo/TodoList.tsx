@@ -80,7 +80,7 @@ const TodoList: React.FC <ITodoList> = ({ id }) => {
               <Menu.Item>
                 {({ active }) => (
                   <li
-                    onClick={() => deleteComponent}
+                    onClick={() => deleteComponent(id)}
                     className={`${
                       active ? "bg-blue-500 text-white" : " text-black"
                     } flex items-center py-2 px-3 cursor-pointer rounded-lg`}
