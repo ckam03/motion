@@ -6,7 +6,7 @@ import { NewComponentContext } from "../../../Context/NewComponentContext";
 
 interface IMenuProps {
   updatePhoto: any;
-  
+  id: any;
 }
 const fetchPhotos = async () => {
   const url = "/api/Photos";
@@ -21,7 +21,7 @@ const fetchPhotos = async () => {
   return results;
 };
 
-const PhotosMenu: React.FC<IMenuProps> = ({ updatePhoto }) => {
+const PhotosMenu: React.FC<IMenuProps> = ({ updatePhoto, id }) => {
   const [photos, setPhotos] = useState<any>([])
   const { deleteComponent } = useContext(NewComponentContext)
 
@@ -29,7 +29,11 @@ const PhotosMenu: React.FC<IMenuProps> = ({ updatePhoto }) => {
     fetchPhotos().then((res) => {
       setPhotos(res.result);
     });
+    
   }, []);
+  const deletePhoto = () => {
+    deleteComponent(id)
+  }
   let fetchedPhotos = photos.map((photo: any, i: number) => {
     return (
       <Image
@@ -108,7 +112,7 @@ const PhotosMenu: React.FC<IMenuProps> = ({ updatePhoto }) => {
                   Upload
                 </li>
               </ul>
-                <li  className=" text-red-500 flex items-center cursor-pointer p-2 rounded-lg w-44 hover:bg-blue-500 hover:text-blue-50">
+                <li onClick={deletePhoto}className=" text-red-500 flex items-center cursor-pointer p-2 rounded-lg w-44 hover:bg-blue-500 hover:text-blue-50">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-5 w-5 mr-4 fill-current text-red-700"

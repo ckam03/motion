@@ -1,5 +1,5 @@
 import { Menu, Transition } from "@headlessui/react";
-import React, { useState, Fragment, useContext } from "react";
+import React, { useState, Fragment, useContext, MouseEvent } from "react";
 import NoteColorChanger from "./NoteColor";
 import Draggable from "react-draggable";
 import { NewComponentContext } from "../../../Context/NewComponentContext";
@@ -23,10 +23,15 @@ const Note: React.FC<INote> = ({ id }) => {
     setColor(notecolor);
   };
 
-  const handleTitle = () => {
-    setTitle()
+  const handleTitle = (event: React.ChangeEvent <HTMLInputElement>) => {
+      
+    setTitle(event.currentTarget.value)
+    console.log(title)
   };
 
+  const handleSubmit = () => {
+    
+  }
   const trackPosition = (pos: any) => {
     setPosition({ x: pos.x, y: pos.y });
   };
@@ -34,18 +39,22 @@ const Note: React.FC<INote> = ({ id }) => {
   const deleteNote = () => {
     deleteComponent(id);
   };
-
+  console.log(title)
   return (
     <div
       className={`${color} h-64 w-64 bg-yellow-200 text-black rounded-lg p-2 shadow-lg`}
     >
       <div className="flex justify-between items-center pb-6">
+        <form onSubmit={handleSubmit}>
+
         <input
           className={`${color} border-none bg-yellow-200 rounded-lg h-8 w-40 font-bold font-Inter`}
           type="text"
           name="Note"
           value={title}
+          onChange={(event) => handleTitle}
         />
+        </form>
         <Menu>
           <Menu.Button>
             <div
@@ -94,7 +103,7 @@ const Note: React.FC<INote> = ({ id }) => {
                 {({ active }) => (
                   <button
                     id="Todo"
-                    onClick={handleTitle}
+                    
                     className={`${
                       active ? "bg-blue-500 text-white" : "text-black"
                     } flex items-center py-2 px-3 rounded-lg w-full`}

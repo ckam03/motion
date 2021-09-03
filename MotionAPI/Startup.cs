@@ -35,6 +35,7 @@ namespace MotionAPI
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MotionAPI", Version = "v1" });
             });
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("motionapiConnection")));
+            services.AddHttpClient();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

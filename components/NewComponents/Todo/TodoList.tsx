@@ -1,21 +1,35 @@
-import { MouseEvent, useEffect, useState, Fragment, useContext } from "react";
+import { useEffect, useState, Fragment, useContext } from "react";
 import TodoForm from "./TodoForm";
 import TodoItem from "./TodoItem";
 import { Menu, Transition } from "@headlessui/react";
 import { NewComponentContext } from "../../../Context/NewComponentContext";
 
 interface ITodoList {
-  id: any;
+  id: any
 }
 const TodoList: React.FC <ITodoList> = ({ id }) => {
-  const [todos, setTodos] = useState<any>();
-  const [title, setTitle] = useState<string>();
-  const {deleteComponent} = useContext(NewComponentContext)
-  return (
+  const todosArray: todo[] = [] 
+  const [todos, setTodos] = useState(todosArray)
+  const [title, setTitle] = useState<string>()
+  const { deleteComponent } = useContext(NewComponentContext)
 
+  const createTodo: addTodo = (todo: any) => {
+      const newTodo = {
+        id: Math.floor(Math.random() * 10000),
+        text: todo,
+        isCompleted: false
+      }
+      setTodos([...todos, newTodo])
+  }
+  const todoItems = todos.map((todo, i) => {
+    return (
+      <TodoItem todo={todo} key={todo.id}/>
+    )
+  })
+  return (
     <div className="w-64 bg-gray-50 rounded-lg shadow-lg p-2 relative space-y-2">
       <div className="flex justify-between items-center p-1">
-        <span contentEditable="true" className="font-bold">
+        <span className="font-bold">
           Title
         </span>
         <Menu>
@@ -108,10 +122,10 @@ const TodoList: React.FC <ITodoList> = ({ id }) => {
           </Transition>
         </Menu>
       </div>
-      <ul>
-        <TodoItem />
+      <ul className="space-y-1 font-Inter text-gray-800">
+        {todoItems}
       </ul>
-      <TodoForm />
+      <TodoForm createTodo={createTodo}/>
     </div>
 
   );

@@ -22,10 +22,10 @@ const NoteColorChanger: React.FC <INoteColor> = ({ handleColor }) => {
         handleColor(color)
     }
      const colorsArray = colors.map((color,i) => {
-         return <div className={`h-8 w-8 rounded-full ${color.style}`} key={i} onClick={() => handleClick(color.style)}></div>
+         return <div className={`h-8 w-8 rounded-full border border-gray-800 ${color.style}`} key={i} onClick={() => handleClick(color.style)}></div>
      })
     return (
-        <div className="flex items-center">
+        <div className="flex items-center justify-center space-x-0.5">
            {colorsArray}
         </div>
     );

@@ -1,12 +1,14 @@
-const TodoItem = () => {
+interface ITodoItem {
+  todo: todo,
+  //toggleTodo: ToggleTodo
+}
+
+const TodoItem:React.FC <ITodoItem> = ({ todo }) => {
+    
     return (
-      <div className="w-full p-2 border shadow-md rounded-lg flex items-center justify-between bg-gray-200 bg-opacity-40 font-Inter">
-        <div className="space-x-4 flex items-center">
-        <input type="checkbox" className="rounded"/>
-        <span>Workout</span>
-        </div>
-        <div className="flex items-center space-x-1">
-  
+      
+      <div className="w-full p-2 border shadow-md rounded-lg flex items-center justify-between bg-gray-200 bg-opacity-50 font-Inter">
+        <li>{todo.text} </li>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-5 w-5"
@@ -22,10 +24,11 @@ const TodoItem = () => {
           />
         </svg>
         
-        </div>
+        
       </div>
     );
   };
   
   export default TodoItem;
+  
   
