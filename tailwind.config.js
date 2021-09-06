@@ -16,11 +16,14 @@ module.exports = {
       },
       spacing: {
         100: '30rem'
-      }
+      },
+      
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      textDecoration: ['checked']
+    },
   },
   plugins: [
     require('@tailwindcss/forms'),

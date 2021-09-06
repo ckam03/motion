@@ -5,33 +5,43 @@ import { Menu, Transition } from "@headlessui/react";
 import { NewComponentContext } from "../../../Context/NewComponentContext";
 
 interface ITodoList {
-  id: any
+  id: any;
 }
-const TodoList: React.FC <ITodoList> = ({ id }) => {
-  const todosArray: todo[] = [] 
-  const [todos, setTodos] = useState(todosArray)
-  const [title, setTitle] = useState<string>()
-  const { deleteComponent } = useContext(NewComponentContext)
+const TodoList: React.FC<ITodoList> = ({ id }) => {
+  const todosArray: todo[] = [];
+  const [todos, setTodos] = useState(todosArray);
+  const [title, setTitle] = useState<string>();
+  const { deleteComponent } = useContext(NewComponentContext);
 
   const createTodo: addTodo = (todo: any) => {
-      const newTodo = {
-        id: Math.floor(Math.random() * 10000),
-        text: todo,
-        isCompleted: false
+    const newTodo = {
+      id: Math.floor(Math.random() * 10000),
+      text: todo,
+      isCompleted: false,
+    };
+    setTodos([...todos, newTodo]);
+  };
+
+  const toggleTodo: ToggleTodo = (selectedTodo: todo) => {
+    const newTodoArray = todos.map((todo, i) => {
+      if (todo === selectedTodo) {
+        return {
+          ...todo,
+          isCompleted: !todo.isCompleted,
+        };
+        console.log(todo);
       }
-      setTodos([...todos, newTodo])
-  }
-  const todoItems = todos.map((todo, i) => {
-    return (
-      <TodoItem todo={todo} key={todo.id}/>
-    )
-  })
+      return todo;
+    });
+    setTodos(newTodoArray);
+  };
+  // const todoItems = todos.map((todo, i) => {
+  //   return <TodoItem todo={todo} toggleTodo={toggleTodo} key={todo.id}/>
+  // })
   return (
     <div className="w-64 bg-gray-50 rounded-lg shadow-lg p-2 relative space-y-2">
       <div className="flex justify-between items-center p-1">
-        <span className="font-bold">
-          Title
-        </span>
+        <span className="font-bold">Title</span>
         <Menu>
           <Menu.Button>
             <div className="p-1 rounded-lg hover:bg-gray-300 ease-in-out duration-100">
@@ -64,7 +74,6 @@ const TodoList: React.FC <ITodoList> = ({ id }) => {
               as="div"
               className="w-48 shadow-lg rounded-lg bg-gray-50 absolute translate-y-16 translate-x-52 z-50"
             >
-              
               <Menu.Item>
                 {({ active }) => (
                   <button
@@ -117,17 +126,17 @@ const TodoList: React.FC <ITodoList> = ({ id }) => {
                   </li>
                 )}
               </Menu.Item>
-              
             </Menu.Items>
           </Transition>
         </Menu>
       </div>
       <ul className="space-y-1 font-Inter text-gray-800">
-        {todoItems}
+        {todos.map((todo, i) => {
+          return <TodoItem todo={todo} toggleTodo={toggleTodo} key={todo.id} />
+        })}
       </ul>
-      <TodoForm createTodo={createTodo}/>
+      <TodoForm createTodo={createTodo} />
     </div>
-
   );
 };
 

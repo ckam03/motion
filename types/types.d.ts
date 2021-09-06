@@ -10,5 +10,5 @@ interface todo {
     text: string,
     isCompleted: boolean
 }
-type ToggleTodo = (selectedTodo: todoItem) => void
+type ToggleTodo = (selectedTodo: todo) => void
 type addTodo = (todo: string) => void;

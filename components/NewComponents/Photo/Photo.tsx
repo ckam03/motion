@@ -15,7 +15,7 @@ const Photo: React.FC<IPhoto> = ({ id }) => {
 
   return (
     <>
-      <div className="h-80 w-64 bg-gray-200 rounded-lg shadow-lg">
+      <div className="bg-gray-200 rounded-lg shadow-lg">
         <div className="flex items-center justify-between">
         <div className="p-2 flex items-center hover:bg-gray-400 rounded-lg">
 
