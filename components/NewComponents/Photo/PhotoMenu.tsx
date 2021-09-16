@@ -34,18 +34,19 @@ const PhotosMenu: React.FC<IMenuProps> = ({ updatePhoto, id }) => {
   const deletePhoto = () => {
     deleteComponent(id)
   }
-  let fetchedPhotos = photos.map((photo: any, i: number) => {
-    return (
-      <Image
-        onClick={() => updatePhoto(photo.urls.small)}
-        src={photo.urls.thumb}
-        key={i}
-        alt="images"
-        width={100}
-        height={100}
-      />
-    );
-  });
+
+   let fetchedPhotos = photos.map((photo: any, i: number) => {
+     return (
+       <Image
+         onClick={() => updatePhoto(photo.urls.small)}
+         src={photo.urls.thumb}
+         key={i}
+         alt="images"
+         width={100}
+         height={100}
+       />
+     );
+   });
 
   return (
     <div className="flex justify-end items-center">

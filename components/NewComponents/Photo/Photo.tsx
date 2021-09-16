@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import PhotoMenu from "./PhotoMenu";
-import Draggable from "react-draggable";
 
 interface IPhoto {
   id: any;
@@ -9,6 +8,7 @@ interface IPhoto {
 const Photo: React.FC<IPhoto> = ({ id }) => {
   const [image, setImage] = useState<any>();
 
+  //passed as a prop to the photoMenu so setImage can be set after a photo is picked
   const updatePhoto = (photo: any) => {
     setImage(photo);
   };

@@ -15,10 +15,12 @@ const newComponents: any = {
 const Board = () => {
     const { components } = useContext(NewComponentContext)
 
+    //map through the components array and render
     const componentList  = components.map((component, i) => {
       const id: number = component.componentType
       const NewComponent = newComponents[id]
       
+      //check if the newComponents object value matches what's in the array so it knows what type to render
       for (const property in newComponents) {
           const value = parseInt(property)
           if (value == id) {

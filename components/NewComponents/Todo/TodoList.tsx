@@ -13,12 +13,14 @@ const TodoList: React.FC<ITodoList> = ({ id }) => {
   const [title, setTitle] = useState<string>();
   const { deleteComponent } = useContext(NewComponentContext);
 
+  //create new Todo
   const createTodo: addTodo = (todo: any) => {
     const newTodo = {
       id: Math.floor(Math.random() * 10000),
       text: todo,
       isCompleted: false,
     };
+    //copy the todos array and add the new Todo to the end of the new array
     setTodos([...todos, newTodo]);
   };
 
@@ -29,15 +31,13 @@ const TodoList: React.FC<ITodoList> = ({ id }) => {
           ...todo,
           isCompleted: !todo.isCompleted,
         };
-        console.log(todo);
+        
       }
       return todo;
     });
     setTodos(newTodoArray);
   };
-  // const todoItems = todos.map((todo, i) => {
-  //   return <TodoItem todo={todo} toggleTodo={toggleTodo} key={todo.id}/>
-  // })
+
   return (
     <div className="w-64 bg-gray-50 rounded-lg shadow-lg p-2 relative space-y-2">
       <div className="flex justify-between items-center p-1">
@@ -130,7 +130,7 @@ const TodoList: React.FC<ITodoList> = ({ id }) => {
           </Transition>
         </Menu>
       </div>
-      <ul className="space-y-1 font-Inter text-gray-800">
+      <ul className="space-y-2 font-Inter text-gray-800">
         {todos.map((todo, i) => {
           return <TodoItem todo={todo} toggleTodo={toggleTodo} key={todo.id} />
         })}
