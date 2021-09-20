@@ -40,7 +40,7 @@ const TodoItem: React.FC<ITodoItem> = ({ todo, toggleTodo }) => {
          </div>
          <div className="flex justify-center items-center mt-1">
              Due:  
-             <input type="date" className="h-8 rounded-lg w-48 ml-2"/>
+             <input type="date" className="h-8 rounded-lg w-48 ml-2" />
          </div>
       </div>
     </div>

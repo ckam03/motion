@@ -18,10 +18,11 @@ const Link: React.FC <ILink> = ({ id }) => {
 };
 
   return (
-    <div className="border shadow-lg rounded-lg bg-gray-200 p-3 font-Inter">
-        <Menu as="div" className="w-10 flex justify-end items-end">
+    <div className="border shadow-lg rounded-lg bg-gray-200 font-Inter">
+      <div className="flex flex-col items-end">
+      <Menu as="div" className="w-10 flex justify-end items-center">
           <Menu.Button>
-            <div className="p-1 rounded-lg hover:bg-gray-300 ease-in-out duration-100">
+            <div className="p-2 rounded-lg hover:bg-gray-300 ease-in-out duration-100">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -49,7 +50,7 @@ const Link: React.FC <ILink> = ({ id }) => {
           >
             <Menu.Items
               as="div"
-              className="w-48 shadow-lg rounded-lg bg-gray-50 absolute translate-y-16 translate-x-52 z-50"
+              className="w-48 shadow-lg rounded-lg bg-gray-50 absolute translate-y-16 z-50"
             >
               <Menu.Item>
                 {({ active }) => (
@@ -109,15 +110,17 @@ const Link: React.FC <ILink> = ({ id }) => {
       <input
         type="text"
         placeholder="Add a Link"
-        className="w-full rounded-lg bg-gray-200 border-none resize-none h-12 mb-6"
+        className="w-full rounded-lg bg-gray-200 border-none resize-none h-10 mb-4 focus:ring-2 focus:border-blue-500"
         value={link}
         onChange={(event) => setLink(event.target.value)}
         onKeyDown={onSubmit}
       />
+      </div>
+        
       <a
         href={link}
         target="_blank"
-        className="underline text-blue-500 font-semibold break-words"
+        className="underline text-blue-500 font-semibold break-words p-2"
       >
         {clickLink}
       </a>

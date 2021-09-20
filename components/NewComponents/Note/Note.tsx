@@ -1,7 +1,6 @@
 import { Menu, Transition } from "@headlessui/react";
 import React, { useState, Fragment, useContext, MouseEvent } from "react";
 import NoteColorChanger from "./NoteColor";
-import Draggable from "react-draggable";
 import { NewComponentContext } from "../../../Context/NewComponentContext";
 
 interface INote {
@@ -10,16 +9,14 @@ interface INote {
 const Note: React.FC<INote> = ({ id }) => {
   const [content, setContent] = useState<string>();
   const [title, setTitle] = useState<string>();
-  const [color, setColor] = useState<any>();
-  const [position, setPosition] = useState<any>({ x: 0, y: 0 });
-
+  const [color, setColor] = useState<string>();
   const { deleteComponent } = useContext(NewComponentContext);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setContent(event.target.value);
   };
 
-  const handleColor = (notecolor: any) => {
+  const handleColor = (notecolor: string) => {
     setColor(notecolor);
   };
 
@@ -32,10 +29,7 @@ const Note: React.FC<INote> = ({ id }) => {
   const handleSubmit = () => {
     
   }
-  const trackPosition = (pos: any) => {
-    setPosition({ x: pos.x, y: pos.y });
-  };
-
+ 
   const deleteNote = () => {
     deleteComponent(id);
   };

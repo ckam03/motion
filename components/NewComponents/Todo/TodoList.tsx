@@ -39,12 +39,12 @@ const TodoList: React.FC<ITodoList> = ({ id }) => {
   };
 
   return (
-    <div className="w-64 bg-gray-50 rounded-lg shadow-lg p-2 relative space-y-2">
-      <div className="flex justify-between items-center p-1">
+    <div className="w-64 bg-gray-100 rounded-lg shadow-lg p-2 relative space-y-2">
+      <div className="flex justify-between items-center">
         <span className="font-bold">Title</span>
         <Menu>
           <Menu.Button>
-            <div className="p-1 rounded-lg hover:bg-gray-300 ease-in-out duration-100">
+            <div className="p-2 rounded-lg hover:bg-gray-300 ease-in-out duration-100">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
