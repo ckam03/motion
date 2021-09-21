@@ -15,7 +15,7 @@ const NewComponentMenu = () => {
     });
   };
   return (
-    <div className="w-6 h-6 mt-4 ml-4 shadow-md text-gray-800 font-Inter z-50">
+    <div className="w-6 h-6 mt-14 ml-4 shadow-md text-gray-800 font-Inter z-50">
       <Menu>
         <Menu.Button>
           <div className="p-1 rounded-lg bg-blue-500 hover:bg-blue-600 ease-in-out duration-100">
@@ -126,7 +126,7 @@ const NewComponentMenu = () => {
             <Menu.Item>
               {({ active }) => (
                 <li
-                onClick={() => newComponent(4)}
+                  onClick={() => newComponent(4)}
                   className={`${
                     active ? "bg-blue-500 text-white" : " text-black"
                   } flex items-center py-2 px-3 cursor-pointer rounded-lg`}
@@ -146,6 +146,32 @@ const NewComponentMenu = () => {
                     />
                   </svg>
                   Link
+                </li>
+              )}
+            </Menu.Item>
+            <Menu.Item>
+              {({ active }) => (
+                <li
+                  onClick={() => newComponent(5)}
+                  className={`${
+                    active ? "bg-blue-500 text-white" : " text-black"
+                  } flex items-center py-2 px-3 cursor-pointer rounded-lg`}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6 mr-3"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                    />
+                  </svg>
+                  Container
                 </li>
               )}
             </Menu.Item>

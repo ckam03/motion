@@ -113,6 +113,13 @@
   margin-left: 0.5rem;
 }
 
+.bg {
+  background-image: url("../backgrounds/plus.svg");
+  height: calc(100vh - 2.5rem);
+  width: 100vw;
+  object-fit: cover;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;

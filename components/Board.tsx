@@ -5,12 +5,14 @@ import Note from "./NewComponents/Note/Note";
 import Photo from "./NewComponents/Photo/Photo";
 import TodoList from "./NewComponents/Todo/TodoList";
 import Link from "./NewComponents/Link/Link";
+import Container from "./NewComponents/Container/Container";
 
 const newComponents: any = {
   1: TodoList,
   2: Photo,
   3: Note,
-  4: Link
+  4: Link,
+  5: Container,
 }
 const Board = () => {
     const { components } = useContext(NewComponentContext)
@@ -34,9 +36,9 @@ const Board = () => {
     })
   
     return (
-      <div className="flex space-x-10 mt-8">
+      <div className="flex space-x-10">
         <NewComponentMenu />
-        <div className="grid grid-cols-6 gap-8 ml-4">{componentList}
+        <div className="grid grid-cols-6 gap-8 ml-4 mt-10">{componentList}
 
         </div>
       </div>

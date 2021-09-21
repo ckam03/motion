@@ -6,16 +6,16 @@ interface IPhoto {
   id: any;
 }
 const Photo: React.FC<IPhoto> = ({ id }) => {
-  const [image, setImage] = useState<any>();
+  const [image, setImage] = useState<string>();
 
   //passed as a prop to the photoMenu so setImage can be set after a photo is picked
-  const updatePhoto = (photo: any) => {
+  const updatePhoto = (photo: string) => {
     setImage(photo);
   };
 
   return (
     <>
-      <div className="bg-gray-200 rounded-lg shadow-lg">
+      <div style={{width: "258px"}} className="bg-gray-200 rounded-lg shadow-lg">
         <div className="flex items-center justify-end">
         <PhotoMenu updatePhoto={updatePhoto} id={id} />
         </div>

@@ -80,7 +80,7 @@ const PhotosMenu: React.FC<IMenuProps> = ({ updatePhoto, id }) => {
         >
           <Menu.Items
             as="div"
-            className="shadow-lg rounded-lg bg-gray-50 absolute p-1 font-Inter"
+            className="shadow-lg rounded-lg bg-gray-50 absolute font-Inter"
           >
             <div className="flex">
               <div className="flex flex-col">

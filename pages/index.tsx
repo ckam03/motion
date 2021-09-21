@@ -16,7 +16,10 @@ const Home: NextPage = () => {
       </Head>
       <NewComponentProvider>
       <Navbar />
+      <div className={styles.bg}>
+
       <Board />
+      </div>
       </NewComponentProvider>
     </div>
   )
