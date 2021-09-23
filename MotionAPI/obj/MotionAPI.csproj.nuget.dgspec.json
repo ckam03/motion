@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\cwkam\\development\\Motion\\MotionAPI\\MotionAPI.csproj": {}
+    "C:\\Users\\cwkam\\development\\motion\\MotionAPI\\MotionAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\cwkam\\development\\Motion\\MotionAPI\\MotionAPI.csproj": {
+    "C:\\Users\\cwkam\\development\\motion\\MotionAPI\\MotionAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\cwkam\\development\\Motion\\MotionAPI\\MotionAPI.csproj",
+        "projectUniqueName": "C:\\Users\\cwkam\\development\\motion\\MotionAPI\\MotionAPI.csproj",
         "projectName": "MotionAPI",
-        "projectPath": "C:\\Users\\cwkam\\development\\Motion\\MotionAPI\\MotionAPI.csproj",
+        "projectPath": "C:\\Users\\cwkam\\development\\motion\\MotionAPI\\MotionAPI.csproj",
         "packagesPath": "C:\\Users\\cwkam\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\cwkam\\development\\Motion\\MotionAPI\\obj\\",
+        "outputPath": "C:\\Users\\cwkam\\development\\motion\\MotionAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\cwkam\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\cwkam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -44,9 +46,13 @@
               "target": "Package",
               "version": "[5.0.8, )"
             },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
-              "version": "[5.0.8, )"
+              "version": "[5.0.10, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL.Design": {
+              "target": "Package",
+              "version": "[1.1.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -63,6 +69,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[5.0.9, 5.0.9]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -71,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-rc.1.21458.32\\RuntimeIdentifierGraph.json"
         }
       }
     }
