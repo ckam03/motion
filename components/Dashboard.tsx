@@ -1,10 +1,12 @@
 import { useState } from "react"
+import NewBoard from "./NewBoard"
 
 const Dashboard = () => {
-    const [board, setBoard] = useState<number>()
+    const [newBoard, setNewBoard] = useState<number>()
+    const boardArray : Board[]  = []
     return (
         <div>
-            
+            <NewBoard />
         </div>
     )
 }

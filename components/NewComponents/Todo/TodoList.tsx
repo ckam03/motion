@@ -2,17 +2,28 @@ import { useEffect, useState, Fragment, useContext } from "react";
 import TodoForm from "./TodoForm";
 import TodoItem from "./TodoItem";
 import { Menu, Transition } from "@headlessui/react";
+import { useDrag } from "react-dnd";
 import { NewComponentContext } from "../../../Context/NewComponentContext";
 
 interface ITodoList {
   id: any;
 }
+
+const ItemTypes = {
+  TodoList: "todolist",
+};
 const TodoList: React.FC<ITodoList> = ({ id }) => {
   const todosArray: todo[] = [];
   const [todos, setTodos] = useState(todosArray);
   const [title, setTitle] = useState<string>();
   const { deleteComponent } = useContext(NewComponentContext);
 
+  const [{ isDragging }, drag] = useDrag(() => ({
+    type: ItemTypes.TodoList,
+    collect: (monitor) => ({
+      isDragging: !!monitor.isDragging(),
+    }),
+  }));
   //create new Todo
   const createTodo: addTodo = (todo: any) => {
     const newTodo = {
@@ -31,7 +42,6 @@ const TodoList: React.FC<ITodoList> = ({ id }) => {
           ...todo,
           isCompleted: !todo.isCompleted,
         };
-        
       }
       return todo;
     });
@@ -39,7 +49,14 @@ const TodoList: React.FC<ITodoList> = ({ id }) => {
   };
 
   return (
-    <div className="w-64 bg-gray-100 rounded-lg shadow-lg p-2 relative space-y-2">
+    <div
+      ref={drag}
+      style={{
+        opacity: isDragging ? 0.5 : 1,
+        cursor: "move",
+      }}
+      className="w-64 bg-gray-200 rounded-lg shadow-lg p-2 relative space-y-2"
+    >
       <div className="flex justify-between items-center">
         <span className="font-bold">Title</span>
         <Menu>
@@ -132,7 +149,7 @@ const TodoList: React.FC<ITodoList> = ({ id }) => {
       </div>
       <ul className="space-y-2 font-Inter text-gray-800">
         {todos.map((todo, i) => {
-          return <TodoItem todo={todo} toggleTodo={toggleTodo} key={todo.id} />
+          return <TodoItem todo={todo} toggleTodo={toggleTodo} key={todo.id} />;
         })}
       </ul>
       <TodoForm createTodo={createTodo} />

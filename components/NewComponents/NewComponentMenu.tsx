@@ -43,7 +43,7 @@ const NewComponentMenu = () => {
           leaveTo="transform opacity-0 scale-95"
         >
           <Menu.Items as="div" className="w-60 shadow-lg rounded-lg bg-white">
-            <h1 className="text-center font-Inter text-2xl pb-2">Items</h1>
+            <h1 className="text-center font-Inter text-xl py-2">Components</h1>
             <Menu.Item>
               {({ active }) => (
                 <button

@@ -5,6 +5,8 @@ import styles from '../styles/Home.module.css'
 import Board from '../components/Board'
 import Navbar from '../components/Navbar'
 import { NewComponentProvider } from '../Context/NewComponentContext'
+import Dashboard from '../components/Dashboard'
+
 
 const Home: NextPage = () => {
   return (
@@ -16,8 +18,8 @@ const Home: NextPage = () => {
       </Head>
       <NewComponentProvider>
       <Navbar />
+      {/* <Dashboard /> */}
       <div className={styles.bg}>
-
       <Board />
       </div>
       </NewComponentProvider>

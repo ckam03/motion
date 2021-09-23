@@ -6,6 +6,8 @@ import Photo from "./NewComponents/Photo/Photo";
 import TodoList from "./NewComponents/Todo/TodoList";
 import Link from "./NewComponents/Link/Link";
 import Container from "./NewComponents/Container/Container";
+import { DndProvider } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
 
 const newComponents: any = {
   1: TodoList,
@@ -34,13 +36,16 @@ const Board = () => {
           }
       }
     })
-  
+    
     return (
       <div className="flex space-x-10">
+        <DndProvider backend={HTML5Backend}>
+
         <NewComponentMenu />
         <div className="grid grid-cols-6 gap-8 ml-4 mt-10">{componentList}
 
         </div>
+        </DndProvider>
       </div>
     )
   }

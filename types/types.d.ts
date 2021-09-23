@@ -12,3 +12,4 @@ interface todo {
 type ToggleTodo = (selectedTodo: todo) => void
 type addTodo = (todo: string) => void;
 type Component = (component: any) => void;
+type Board = (board: number) => void;
