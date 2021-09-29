@@ -55,7 +55,7 @@ const TodoList: React.FC<ITodoList> = ({ id }) => {
         opacity: isDragging ? 0.5 : 1,
         cursor: "move",
       }}
-      className="w-64 bg-gray-200 rounded-lg shadow-lg p-2 relative space-y-2"
+      className="w-64 bg-gray-200 dark:bg-gray-600 rounded-lg shadow-lg p-2 relative space-y-2"
     >
       <div className="flex justify-between items-center">
         <span className="font-bold">Title</span>

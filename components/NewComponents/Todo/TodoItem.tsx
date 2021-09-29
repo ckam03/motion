@@ -9,7 +9,7 @@ const TodoItem: React.FC<ITodoItem> = ({ todo, toggleTodo }) => {
   const [expand, setExpand] = useState<boolean>(false)
 
   return (
-    <div className={`p-2 border shadow-md rounded-lg bg-gray-100 font-Inter`}>
+    <div className="p-2 shadow-md rounded-lg bg-gray-100 dark:bg-gray-500 dark:text-gray-300 font-Inter">
       <div className={`${expand ? "h-20 duration-300 ease-in-out" : "h-10 duration-300 ease-in-out"} h-14 flex flex-col`}>
       <div className="flex items-center justify-between">
          <li

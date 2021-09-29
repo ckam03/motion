@@ -8,7 +8,7 @@ const Notifications = () => {
       <Menu.Button>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-7 w-7 relative text-gray-600"
+          className="h-7 w-7 relative text-gray-600 dark:text-gray-300"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -35,13 +35,13 @@ const Notifications = () => {
       >
         <Menu.Items
           as="div"
-          className="w-80 shadow-lg rounded-lg bg-gray-50 absolute top-12 right-20 z-50 divide-y divide-gray-200"
+          className="w-80 shadow-lg rounded-lg bg-gray-50 dark:bg-gray-600 absolute top-12 right-20 z-50 divide-y divide-gray-200 dark:divide-gray-500"
         >
           <div className="flex items-center justify-between p-3">
-          <h1 className="text-lg font-semibold text-center">
+          <h1 className="text-lg font-bold text-center dark:text-gray-300">
             Notifications
           </h1>
-          <button className="hover:text-red-500">Clear All</button>
+          <button className="hover:text-red-500 dark:text-gray-300">Clear All</button>
 
           </div>
           <Menu.Item>
@@ -51,7 +51,7 @@ const Notifications = () => {
                   active ? "bg-blue-500 text-white" : "text-black"
                 } flex flex-col py-2 px-3 rounded-lg w-full`}
               >
-                <div id="Todo" className="flex items-center font-semibold">
+                <div id="Todo" className="flex items-center font-semibold dark:text-gray-300">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className={`${
@@ -68,7 +68,7 @@ const Notifications = () => {
                   </svg>
                   Chris edited Work Stuff
                 </div>
-                <p className="ml-11">App Todo</p>
+                <p className="ml-11 dark:text-gray-300">App Todo</p>
               </button>
             )}
           </Menu.Item>
@@ -79,7 +79,7 @@ const Notifications = () => {
                   active ? "bg-blue-500 text-white" : "text-black"
                 } flex flex-col py-2 px-3 rounded-lg w-full`}
               >
-                <div id="Todo" className="flex items-center font-semibold">
+                <div id="Todo" className="flex items-center font-semibold dark:text-gray-300">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className={`${
@@ -96,7 +96,7 @@ const Notifications = () => {
                   </svg>
                   Saya edited Vacation Plans
                 </div>
-                <p className="ml-11">Vacation Photos</p>
+                <p className="ml-11 dark:text-gray-300">Vacation Photos</p>
               </button>
             )}
           </Menu.Item>

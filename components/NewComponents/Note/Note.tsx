@@ -6,6 +6,7 @@ import { NewComponentContext } from "../../../Context/NewComponentContext";
 interface INote {
   id: any;
 }
+
 const Note: React.FC<INote> = ({ id }) => {
   const [content, setContent] = useState<string>();
   const [title, setTitle] = useState<string>();

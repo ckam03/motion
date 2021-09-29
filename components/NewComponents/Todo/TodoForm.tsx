@@ -23,10 +23,10 @@ const TodoForm: React.FC<ITodoForm> = ({ createTodo }) => {
             setTodo(event.target.value)}
           }
           onKeyDown={onSubmit}
-          className="font-Inter p-2 rounded-lg w-full h-9 flex justify-center items-center border-none bg-gray-100 focus:ring-2 focus:border-blue-500 ease-in-out duration-100 shadow-lg"
+          className="font-Inter p-2 rounded-lg w-full h-9 flex justify-center items-center border-none bg-gray-100 dark:bg-gray-500 dark:placeholder-gray-200 focus:ring-2 focus:border-blue-500 ease-in-out duration-100 shadow-lg"
           placeholder="Add New Todo"
         />
-        <button className="p-1 rounded-lg h-9 flex justify-center items-center border-2 bg-gray-50 border-gray-100 ease-in-out duration-100 hover:bg-blue-500 hover:text-blue-50 shadow-lg">
+        <button className="p-1 rounded-lg h-9 flex justify-center items-center border-2 bg-gray-50 dark:bg-gray-500 border-gray-100 dark:border-gray-600 ease-in-out duration-100 hover:bg-blue-500 hover:text-blue-50 shadow-lg">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5"

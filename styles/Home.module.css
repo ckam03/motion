@@ -113,11 +113,19 @@
   margin-left: 0.5rem;
 }
 
-.bg {
+.light {
   background-image: url("../backgrounds/plus.svg");
   height: calc(100vh - 2.5rem);
   width: 100vw;
   object-fit: cover;
+  
+}
+.dark {
+  background-image: url("../backgrounds/plus.svg");
+  height: calc(100vh - 2.5rem);
+  width: 100vw;
+  object-fit: cover;
+  background-color: #374151;
 }
 
 @media (max-width: 600px) {

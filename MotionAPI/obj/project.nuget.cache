@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EcynKfem4Pd4nf5FK3sxC/nS1gG8r6L8vo5VLaXw0C9TD5Zgy3oJXBg85womQsdX/jZwWkJ6RPp4jYujVum7lA==",
+  "dgSpecHash": "hUEDEztBB0jKKEVjRFDhKC8C4iWpbm6lcz5FGmpXKH5xwIfzvMeZl4vPKr/xug9tCz2gOJoVqkF/TUxGKp4uvQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\cwkam\\development\\motion\\MotionAPI\\MotionAPI.csproj",
+  "projectFilePath": "C:\\Users\\cwkam\\development\\motion\\MotionApi\\MotionAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\cwkam\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\cwkam\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

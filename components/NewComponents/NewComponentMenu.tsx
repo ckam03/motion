@@ -42,8 +42,8 @@ const NewComponentMenu = () => {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items as="div" className="w-60 shadow-lg rounded-lg bg-white">
-            <h1 className="text-center font-Inter text-xl py-2">Components</h1>
+          <Menu.Items as="div" className="w-60 shadow-lg rounded-lg bg-white dark:bg-gray-600">
+            <h1 className="text-center font-Inter text-xl py-2 dark:text-gray-200">Components</h1>
             <Menu.Item>
               {({ active }) => (
                 <button
@@ -51,7 +51,7 @@ const NewComponentMenu = () => {
                   onClick={() => newComponent(1)}
                   className={`${
                     active ? "bg-blue-500 text-white" : "text-black"
-                  } flex items-center py-2 px-3 rounded-lg w-full`}
+                  } flex items-center py-2 px-3 rounded-lg w-full dark:text-gray-300`}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

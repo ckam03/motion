@@ -1,13 +1,14 @@
 import { Menu, Transition } from "@headlessui/react";
-import { Fragment } from "react";
-
+import { Fragment, useContext, useState } from "react";
+import { ThemeContext } from "../Context/ThemeContext";
 const SettingsMenu = () => {
+  const { toggleTheme, setToggleTheme } = useContext(ThemeContext)
   return (
     <Menu>
       <Menu.Button>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-7 w-7 text-gray-600"
+          className="h-7 w-7 text-gray-600 dark:text-gray-300"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -31,7 +32,7 @@ const SettingsMenu = () => {
       >
         <Menu.Items
           as="div"
-          className="w-48 shadow-lg rounded-lg bg-gray-50 absolute translate-y-24 -translate-x-10 z-50"
+          className="w-48 shadow-lg rounded-lg bg-gray-50 dark:bg-gray-600 absolute translate-y-24 -translate-x-10 z-50"
         >
           <Menu.Item>
             {({ active }) => (
@@ -39,7 +40,7 @@ const SettingsMenu = () => {
                 id="Todo"
                 className={`${
                   active ? "bg-blue-500 text-white" : "text-black"
-                } flex items-center py-2 px-3 rounded-lg w-full`}
+                } flex items-center py-2 px-3 rounded-lg w-full dark:text-gray-200`}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -69,9 +70,10 @@ const SettingsMenu = () => {
             {({ active }) => (
               <button
                 id="Todo"
+                onClick={() => setToggleTheme(!toggleTheme)}
                 className={`${
                   active ? "bg-blue-500 text-white" : "text-black"
-                } flex items-center py-2 px-3 rounded-lg w-full`}
+                } flex items-center py-2 px-3 rounded-lg w-full dark:text-gray-200`}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +98,7 @@ const SettingsMenu = () => {
               <li
                 className={`${
                   active ? "bg-blue-500 text-white" : " text-black"
-                } flex items-center py-2 px-3 cursor-pointer rounded-lg`}
+                } flex items-center py-2 px-3 cursor-pointer rounded-lg dark:text-gray-200`}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

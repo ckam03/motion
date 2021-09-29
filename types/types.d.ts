@@ -4,6 +4,10 @@ type NewComponentsState = {
     deleteComponent: (id: any) => components;
 }
 
+type ThemeState = {
+    toggleTheme: boolean;
+    setToggleTheme: (toogle: boolean) => void;
+}
 interface todo {
     id: any,
     text: string,

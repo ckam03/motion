@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\cwkam\\development\\motion\\MotionAPI\\MotionAPI.csproj": {}
+    "C:\\Users\\cwkam\\development\\motion\\MotionApi\\MotionAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\cwkam\\development\\motion\\MotionAPI\\MotionAPI.csproj": {
+    "C:\\Users\\cwkam\\development\\motion\\MotionApi\\MotionAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\cwkam\\development\\motion\\MotionAPI\\MotionAPI.csproj",
+        "projectUniqueName": "C:\\Users\\cwkam\\development\\motion\\MotionApi\\MotionAPI.csproj",
         "projectName": "MotionAPI",
-        "projectPath": "C:\\Users\\cwkam\\development\\motion\\MotionAPI\\MotionAPI.csproj",
+        "projectPath": "C:\\Users\\cwkam\\development\\motion\\MotionApi\\MotionAPI.csproj",
         "packagesPath": "C:\\Users\\cwkam\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\cwkam\\development\\motion\\MotionAPI\\obj\\",
+        "outputPath": "C:\\Users\\cwkam\\development\\motion\\MotionApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\cwkam\\AppData\\Roaming\\NuGet\\NuGet.Config",
